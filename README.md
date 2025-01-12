@@ -1,10 +1,31 @@
 *This is not only my work, these files are a collaboration of my team and our challenge advisors*
 *The data we used is a product of Fannie Mae and can be found on their website at: https://capitalmarkets.fanniemae.com/credit-risk-transfer/single-family-credit-risk-transfer/fannie-mae-single-family-loan-performance-data*
 
-At Break Through Tech AI @ MIT my AI student project was to create a Machine Learning Model to predict prepayment probability concerning mortgages. We took the Fannie Mae dataset and looked specifically at the timeframe 2018-2022. These were mortgages that were created in 2018 and kept track of them with data on their status being created every month through December of 2022.
+# AI-Studio-Project-Predicting-Prepayment-Probability
+This repository contains the collaborative work of my team and our challenge advisors during the Break Through Tech AI @ MIT AI student project. The goal of this project was to create a Machine Learning Model to predict prepayment probability concerning mortgages using data provided by Fannie Mae.
 
-The goal of this project was to predict potential borrower prepay events to maximize borrower assistance options and access pool level behavior. We look at borrower prepayment because when a borrower prepays, the loan is terminated.
+## Project Overview
+We used Fannie Mae's Single-Family Loan Performance Data, which can be accessed at the link above. 
 
-For our data preprocessing, we had to organize the data, as it is in the form of a time series. Each month was stored in a separate .xlsx file. All these files were put in order and combined into one dataframe and the reporting period was converted into dates. We then one hot encoded categorical values as well as creating a prepay column that would be set to yes for a zero balance code of 1, which would refer to whether a borrower had prepaid.
+## Problem Statement
+We focused on mortgages originated in 2018, tracking their status monthly until December 2022. The objective of the project was to predict potential borrower prepayment events to:
 
-After processing our data and creating our testing/training splits, we created a decision tree. Looking at our decision tree, it was too complex, which was ok for predicting individual loans, but not predicting pool level behavior. To measure pool level behavior we created our own custom metric, that would calculate the the mean error of the model, taking mean value of our predicted y and subtracting it from the mean value of the actual y. This custom metric was a better predictor of the models behavior than an accuracy score. Using this we could see we needed to increase the bias of the model, to allow for better generalization. 
+Maximize borrower assistance options.
+Analyze pool-level behavior.
+When a borrower prepays, the loan is terminated, which is why understanding prepayment events is crucial.
+
+## Data Overview
+Time Period: 2018-2022.
+The dataset consists of time-series data, where each month has a separate .xlsx file. We combined all the files into one DataFrame and handled date conversion for the reporting periods.
+## Data Preprocessing
+Organized the time-series data, ensuring it was in chronological order.
+One-hot encoded categorical features.
+Created a prepay column that indicated whether a borrower had prepaid (i.e., when the balance code was set to 1, marking a prepay event).
+## Model Creation
+After preprocessing and splitting the data into training and testing sets, we initially created a decision tree model. The decision tree was highly complex and suitable for predicting individual loans, but we needed a model that could generalize better to pool-level behavior.
+
+## Custom Evaluation Metric
+We designed a custom metric to evaluate the model’s performance at a pool level. This metric calculated the mean error by taking the mean value of the predicted prepayment probability (y) and subtracting it from the mean value of the actual prepayment probability (y). This approach gave us better insights into the model’s behavior than standard accuracy scores.
+
+## Model Adjustments
+Through the evaluation process, we identified that we needed to increase the bias of the model to allow for better generalization, which would help in predicting pool-level behavior more effectively.
